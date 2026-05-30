@@ -34,19 +34,19 @@
       <nav class="nav">
         <button class="nav-item active" data-tab="home" id="nav-home">
           <span class="nav-icon">🏠</span>
-          <span>Home</span>
+          <span data-i18n="nav_home">Home</span>
         </button>
         <button class="nav-item" data-tab="install" id="nav-install">
           <span class="nav-icon">📦</span>
-          <span>Install Mod</span>
+          <span data-i18n="nav_install">Install Mod</span>
         </button>
         <button class="nav-item" data-tab="settings" id="nav-settings">
           <span class="nav-icon">⚙️</span>
-          <span>Settings</span>
+          <span data-i18n="nav_settings">Settings</span>
         </button>
         <button class="nav-item" data-tab="about" id="nav-about">
           <span class="nav-icon">ℹ️</span>
-          <span>About</span>
+          <span data-i18n="nav_about">About</span>
         </button>
       </nav>
 
@@ -68,7 +68,7 @@
       <section class="tab-panel active" id="tab-home">
         <div class="panel-header">
           <h1 class="panel-title">007: First Light</h1>
-          <p class="panel-subtitle">Mod Manager (.rpkg)</p>
+          <p class="panel-subtitle" data-i18n="subtitle_home">Mod Manager (.rpkg)</p>
         </div>
 
         <!-- Card do jogo detectado -->
@@ -80,14 +80,14 @@
             </div>
           </div>
           <div class="game-card-info">
-            <div class="game-tag" id="platform-tag">Detecting...</div>
+            <div class="game-tag" id="platform-tag" data-i18n="detecting">Detecting...</div>
             <h2 class="game-title">007: First Light</h2>
-            <p class="game-path" id="game-path-display">Scanning for installation...</p>
+            <p class="game-path" id="game-path-display" data-i18n="scanning">Scanning for installation...</p>
 
             <div class="game-status-row">
               <div class="status-chip" id="mod-status-chip">
                 <span class="chip-dot"></span>
-                <span class="chip-text">Checking...</span>
+                <span class="chip-text" data-i18n="checking">Checking...</span>
               </div>
               <div class="status-chip version-chip" id="version-chip" style="display:none">
                 <span class="chip-text" id="installed-version-text"></span>
@@ -97,15 +97,15 @@
             <div class="game-actions">
               <button class="btn btn-primary" id="btn-install-main" disabled>
                 <span class="btn-icon">📦</span>
-                Instalar Mod
+                <span data-i18n="btn_install_main">Install Mod</span>
               </button>
               <button class="btn btn-ghost" id="btn-uninstall-main" disabled>
                 <span class="btn-icon">🗑️</span>
-                Uninstall
+                <span data-i18n="btn_uninstall">Uninstall</span>
               </button>
               <button class="btn btn-ghost" id="btn-open-folder" disabled>
                 <span class="btn-icon">📁</span>
-                Open Folder
+                <span data-i18n="btn_open_folder">Open Folder</span>
               </button>
             </div>
           </div>
@@ -115,32 +115,32 @@
         <div class="update-banner" id="update-banner" style="display:none">
           <div class="update-icon">🔔</div>
           <div class="update-text">
-            <strong>New version available!</strong>
+            <strong data-i18n="new_version">New version available!</strong>
             <span id="update-version-text"></span>
           </div>
-          <a href="#" class="btn btn-accent btn-sm" id="btn-download-update">Download</a>
+          <a href="#" class="btn btn-accent btn-sm" id="btn-download-update" data-i18n="btn_download">Download</a>
         </div>
 
         <!-- Status cards -->
         <div class="status-grid">
           <div class="status-card">
             <div class="status-card-icon">🎮</div>
-            <div class="status-card-label">Game</div>
+            <div class="status-card-label" data-i18n="lbl_game">Game</div>
             <div class="status-card-value" id="sc-game">—</div>
           </div>
           <div class="status-card">
             <div class="status-card-icon">📦</div>
-            <div class="status-card-label">Mods</div>
-            <div class="status-card-value" id="sc-mod">Not installed</div>
+            <div class="status-card-label" data-i18n="lbl_mods">Mods</div>
+            <div class="status-card-value" id="sc-mod" data-i18n="val_not_installed">Not installed</div>
           </div>
           <div class="status-card">
             <div class="status-card-icon">💾</div>
-            <div class="status-card-label">Backup</div>
+            <div class="status-card-label" data-i18n="lbl_backup">Backup</div>
             <div class="status-card-value" id="sc-backup">—</div>
           </div>
           <div class="status-card">
             <div class="status-card-icon">🔗</div>
-            <div class="status-card-label">Platform</div>
+            <div class="status-card-label" data-i18n="lbl_platform">Platform</div>
             <div class="status-card-value" id="sc-platform">—</div>
           </div>
         </div>
@@ -149,8 +149,8 @@
       <!-- TAB: INSTALAR -->
       <section class="tab-panel" id="tab-install">
         <div class="panel-header">
-          <h1 class="panel-title">Install Mod</h1>
-          <p class="panel-subtitle">Select the mod's .rpkg or .zip file</p>
+          <h1 class="panel-title" data-i18n="title_install">Install Mod</h1>
+          <p class="panel-subtitle" data-i18n="subtitle_install">Select the mod's .rpkg or .zip file</p>
         </div>
 
         <div class="install-flow">
@@ -158,13 +158,13 @@
           <div class="flow-step" id="step-game">
             <div class="step-number">1</div>
             <div class="step-content">
-              <h3 class="step-title">Game Detected</h3>
+              <h3 class="step-title" data-i18n="step1_title">Game Detected</h3>
               <div class="step-path-box" id="step-game-path">
                 <span class="path-icon">📁</span>
-                <span class="path-text" id="step-game-path-text">Not found</span>
+                <span class="path-text" id="step-game-path-text" data-i18n="step1_not_found">Not found</span>
               </div>
               <button class="btn btn-ghost btn-sm" id="btn-manual-path">
-                📂 Select manually
+                📂 <span data-i18n="step1_btn">Select manually</span>
               </button>
             </div>
           </div>
@@ -174,12 +174,12 @@
           <div class="flow-step" id="step-mod-file">
             <div class="step-number">2</div>
             <div class="step-content">
-              <h3 class="step-title">Mod File</h3>
+              <h3 class="step-title" data-i18n="step2_title">Mod File</h3>
               <div class="drop-zone" id="drop-zone">
                 <div class="drop-icon">📦</div>
-                <p class="drop-label">Drag and drop <strong>.rpkg</strong> or <strong>.zip</strong> file here</p>
-                <p class="drop-sub">or</p>
-                <button class="btn btn-primary btn-sm" id="btn-browse-mod">Browse file</button>
+                <p class="drop-label" data-i18n="step2_label">Drag and drop <strong>.rpkg</strong> or <strong>.zip</strong> file here</p>
+                <p class="drop-sub" data-i18n="step2_or">or</p>
+                <button class="btn btn-primary btn-sm" id="btn-browse-mod" data-i18n="step2_btn">Browse file</button>
               </div>
               <div class="selected-file-display" id="selected-file-display" style="display:none">
                 <span class="file-icon">📄</span>
@@ -194,14 +194,14 @@
           <div class="flow-step" id="step-confirm">
             <div class="step-number">3</div>
             <div class="step-content">
-              <h3 class="step-title">Install</h3>
+              <h3 class="step-title" data-i18n="step3_title">Install</h3>
               <div class="install-warning">
                 <span>⚠️</span>
-                <span>A backup of the original files will be automatically created before installation.</span>
+                <span data-i18n="step3_warning">A backup of the original files will be automatically created before installation.</span>
               </div>
               <button class="btn btn-primary" id="btn-do-install" disabled>
                 <span class="btn-icon">🚀</span>
-                Install Mod
+                <span data-i18n="btn_install_mod">Install Mod</span>
               </button>
             </div>
           </div>
@@ -209,7 +209,7 @@
 
         <!-- Progress -->
         <div class="progress-area" id="progress-area" style="display:none">
-          <div class="progress-label" id="progress-label">Installing...</div>
+          <div class="progress-label" id="progress-label" data-i18n="progress_label">Installing...</div>
           <div class="progress-bar-track">
             <div class="progress-bar-fill" id="progress-bar"></div>
           </div>
@@ -219,18 +219,32 @@
       <!-- TAB: CONFIGURAÇÕES -->
       <section class="tab-panel" id="tab-settings">
         <div class="panel-header">
-          <h1 class="panel-title">Settings</h1>
-          <p class="panel-subtitle">Customize the Mod Manager</p>
+          <h1 class="panel-title" data-i18n="title_settings">Settings</h1>
+          <p class="panel-subtitle" data-i18n="subtitle_settings">Customize the Mod Manager</p>
         </div>
 
         <div class="settings-list">
+          <!-- Language Selection -->
           <div class="settings-group">
-            <h3 class="settings-group-title">Game Path</h3>
+            <h3 class="settings-group-title" data-i18n="settings_lang_title">Language / Idioma</h3>
             <div class="setting-row">
-              <label class="setting-label" for="input-game-path">007: First Light Directory</label>
+              <label class="setting-label" data-i18n="settings_lang_label">Select Language</label>
+              <div class="setting-control">
+                <select class="setting-input" id="select-language">
+                  <option value="en">English</option>
+                  <option value="pt">Português</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="settings-group">
+            <h3 class="settings-group-title" data-i18n="group_game_path">Game Path</h3>
+            <div class="setting-row">
+              <label class="setting-label" for="input-game-path" data-i18n="lbl_game_directory">007: First Light Directory</label>
               <div class="setting-control path-control">
                 <input type="text" class="setting-input" id="input-game-path" placeholder="C:\Program Files\Steam\steamapps\common\..." readonly />
-                <button class="btn btn-ghost btn-sm" id="btn-choose-path">Browse</button>
+                <button class="btn btn-ghost btn-sm" id="btn-choose-path" data-i18n="btn_browse">Browse</button>
               </div>
             </div>
           </div>
@@ -238,13 +252,13 @@
           <div class="settings-group">
             <h3 class="settings-group-title">Nexus Mods</h3>
             <div class="setting-row">
-              <label class="setting-label" for="input-nexus-key">API Key (optional — to check for updates)</label>
+              <label class="setting-label" for="input-nexus-key" data-i18n="lbl_api_key">API Key (optional — to check for updates)</label>
               <div class="setting-control">
-                <input type="password" class="setting-input" id="input-nexus-key" placeholder="Your Nexus Mods API key..." />
+                <input type="password" class="setting-input" id="input-nexus-key" data-i18n-placeholder="placeholder_api_key" placeholder="Your Nexus Mods API key..." />
               </div>
             </div>
             <div class="setting-row">
-              <label class="setting-label">Check for updates automatically</label>
+              <label class="setting-label" data-i18n="lbl_auto_update">Check for updates automatically</label>
               <div class="setting-control">
                 <label class="toggle" id="toggle-auto-update">
                   <input type="checkbox" id="check-auto-update" checked />
@@ -255,9 +269,9 @@
           </div>
 
           <div class="settings-group">
-            <h3 class="settings-group-title">Backup</h3>
+            <h3 class="settings-group-title" data-i18n="group_backup">Backup</h3>
             <div class="setting-row">
-              <label class="setting-label">Original backup</label>
+              <label class="setting-label" data-i18n="lbl_backup_status">Original backup</label>
               <div class="setting-control">
                 <span class="setting-value" id="backup-status-text">—</span>
               </div>
@@ -265,14 +279,14 @@
             <div class="setting-row">
               <label class="setting-label"></label>
               <div class="setting-control">
-                <button class="btn btn-danger btn-sm" id="btn-delete-backup">🗑️ Delete backup</button>
+                <button class="btn btn-danger btn-sm" id="btn-delete-backup">🗑️ <span data-i18n="btn_delete_backup">Delete backup</span></button>
               </div>
             </div>
           </div>
 
           <div class="settings-actions">
-            <button class="btn btn-primary" id="btn-save-settings">💾 Save Settings</button>
-            <button class="btn btn-ghost" id="btn-check-now">🔄 Check for updates now</button>
+            <button class="btn btn-primary" id="btn-save-settings"><span data-i18n="btn_save_settings">Save Settings</span></button>
+            <button class="btn btn-ghost" id="btn-check-now"><span data-i18n="btn_check_updates_now">Check for updates now</span></button>
           </div>
         </div>
       </section>
@@ -280,16 +294,16 @@
       <!-- TAB: SOBRE -->
       <section class="tab-panel" id="tab-about">
         <div class="panel-header">
-          <h1 class="panel-title">About</h1>
-          <p class="panel-subtitle">Open Source Mod Manager</p>
+          <h1 class="panel-title" data-i18n="title_about">About</h1>
+          <p class="panel-subtitle" data-i18n="subtitle_about">Open Source Mod Manager</p>
         </div>
 
         <div class="about-content">
           <div class="about-hero">
             <div class="about-logo">🛠️</div>
             <h2 class="about-title">First Light Mod Manager</h2>
-            <p class="about-version">Version 0.1.0</p>
-            <p class="about-desc">
+            <p class="about-version" data-i18n="about_version">Version 0.1.0</p>
+            <p class="about-desc" data-i18n="about_desc">
               Open-source mod manager for <strong>007: First Light</strong>.
               Safely and easily install, update, and remove .rpkg files without needing
               technical knowledge.
@@ -307,14 +321,14 @@
             <a href="#" class="about-link-card" id="abt-discord">
               <span class="alc-icon">💬</span>
               <div>
-                <strong>Discord Community</strong>
-                <span>Visit the official server</span>
+                <strong data-i18n="abt_discord_title">Discord Community</strong>
+                <span data-i18n="abt_discord_sub">Visit the official server</span>
               </div>
             </a>
           </div>
 
           <div class="about-tech">
-            <h3>Technologies used</h3>
+            <h3 data-i18n="abt_tech_title">Technologies used</h3>
             <div class="tech-chips">
               <span class="tech-chip">Tauri 2</span>
               <span class="tech-chip">Rust</span>
@@ -323,7 +337,7 @@
             </div>
           </div>
 
-          <p class="about-footer">
+          <p class="about-footer" data-i18n="about_footer">
             Open Source · 2026 · MIT / Apache 2.0 License
           </p>
         </div>
