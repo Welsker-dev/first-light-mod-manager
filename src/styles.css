@@ -132,7 +132,24 @@ html, body {
   width: 3px; border-radius: 2px;
   background: var(--gold);
 }
-.nav-icon { font-size: 16px; width: 20px; text-align: center; }
+.nav-icon {
+  font-size: 16px;
+  width: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.nav-icon svg {
+  width: 16px;
+  height: 16px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  transition: transform var(--transition);
+}
+.nav-item:hover .nav-icon svg {
+  transform: scale(1.1);
+}
 
 .sidebar-footer {
   padding: 0 16px;
@@ -608,3 +625,98 @@ html, body {
 .toast-info    { background: rgba(74,158,255,0.15); border: 1px solid rgba(74,158,255,0.35); color: var(--text); }
 .toast-icon { font-size: 18px; }
 .toast-msg  { flex: 1; line-height: 1.4; }
+
+/* ── SVG Icons alignments and styling ────────────────────────────────── */
+.logo-icon svg {
+  width: 22px;
+  height: 22px;
+  stroke: var(--text);
+  fill: none;
+  display: block;
+}
+
+.btn-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 6px;
+}
+
+.btn-icon svg {
+  width: 14px;
+  height: 14px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  display: block;
+}
+
+.update-icon svg {
+  width: 20px;
+  height: 20px;
+  stroke: var(--accent);
+  fill: none;
+  display: block;
+}
+
+.status-card-icon svg {
+  width: 22px;
+  height: 22px;
+  stroke: var(--gold-light);
+  fill: none;
+  stroke-width: 2;
+  display: block;
+}
+
+.path-icon svg {
+  width: 14px;
+  height: 14px;
+  stroke: var(--text-muted);
+  fill: none;
+  display: block;
+}
+
+.drop-icon svg {
+  width: 48px;
+  height: 48px;
+  stroke: var(--gold);
+  fill: none;
+  display: block;
+  margin-bottom: 8px;
+  transition: transform var(--transition);
+}
+.drop-zone:hover .drop-icon svg {
+  transform: scale(1.08) translateY(-2px);
+}
+
+.file-icon svg {
+  width: 20px;
+  height: 20px;
+  stroke: var(--text-muted);
+  fill: none;
+  display: block;
+}
+
+.warning-icon svg {
+  width: 18px;
+  height: 18px;
+  stroke: var(--danger);
+  fill: none;
+  display: block;
+}
+
+.about-logo svg {
+  width: 48px;
+  height: 48px;
+  stroke: var(--gold-light);
+  fill: none;
+  display: block;
+}
+
+.alc-icon svg {
+  width: 20px;
+  height: 20px;
+  stroke: var(--gold);
+  fill: none;
+  display: block;
+}
