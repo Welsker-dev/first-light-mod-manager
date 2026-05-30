@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>007: First Light Mod Manager</title>
+  <meta name="description" content="Instale e gerencie mods (.rpkg) para o jogo 007: First Light de forma simples e segura." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Background decorativo -->
+  <div class="bg-orbs">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+
+  <div class="app-shell">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-logo">
+          <span class="logo-icon">🛠️</span>
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">First Light</span>
+          <span class="brand-sub">Mod Manager</span>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <button class="nav-item active" data-tab="home" id="nav-home">
+          <span class="nav-icon">🏠</span>
+          <span>Início</span>
+        </button>
+        <button class="nav-item" data-tab="install" id="nav-install">
+          <span class="nav-icon">📦</span>
+          <span>Instalar Mod</span>
+        </button>
+        <button class="nav-item" data-tab="settings" id="nav-settings">
+          <span class="nav-icon">⚙️</span>
+          <span>Configurações</span>
+        </button>
+        <button class="nav-item" data-tab="about" id="nav-about">
+          <span class="nav-icon">ℹ️</span>
+          <span>Sobre</span>
+        </button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="version-badge">v0.1.0</div>
+        <a href="#" class="social-link" id="link-discord" title="Discord">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.492c-1.53-.69-3.17-1.2-4.885-1.49a.075.075 0 0 0-.079.036c-.21.369-.444.85-.608 1.23a18.566 18.566 0 0 0-5.487 0 12.36 12.36 0 0 0-.617-1.23A.077.077 0 0 0 8.562 3c-1.714.29-3.354.8-4.885 1.491a.07.07 0 0 0-.032.027C.533 9.093-.32 13.555.099 17.961a.08.08 0 0 0 .031.055 20.03 20.03 0 0 0 5.993 2.98.078.078 0 0 0 .084-.026c.462-.62.874-1.275 1.226-1.963.021-.04.001-.088-.041-.104a13.201 13.201 0 0 1-1.872-.878.075.075 0 0 1-.008-.125c.126-.093.252-.19.372-.287a.075.075 0 0 1 .078-.01c3.927 1.764 8.18 1.764 12.061 0a.075.075 0 0 1 .079.009c.12.098.245.195.372.288a.075.075 0 0 1-.006.125c-.598.344-1.22.635-1.873.877a.075.075 0 0 0-.041.105c.36.687.772 1.341 1.225 1.962a.077.077 0 0 0 .084.028 19.963 19.963 0 0 0 6.002-2.981.076.076 0 0 0 .032-.054c.5-5.094-.838-9.52-3.549-13.442a.06.06 0 0 0-.031-.028z"/></svg>
+        </a>
+        <a href="#" class="social-link" id="link-nexus" title="Nexus Mods">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </a>
+      </div>
+    </aside>
+
+    <!-- Conteúdo principal -->
+    <main class="main-content">
+
+      <!-- TAB: HOME -->
+      <section class="tab-panel active" id="tab-home">
+        <div class="panel-header">
+          <h1 class="panel-title">007: First Light</h1>
+          <p class="panel-subtitle">Gerenciador de Mods (.rpkg)</p>
+        </div>
+
+        <!-- Card do jogo detectado -->
+        <div class="game-card" id="game-card">
+          <div class="game-card-art">
+            <div class="game-art-placeholder">
+              <span class="art-text">007</span>
+              <span class="art-sub">FIRST LIGHT</span>
+            </div>
+          </div>
+          <div class="game-card-info">
+            <div class="game-tag" id="platform-tag">Detectando...</div>
+            <h2 class="game-title">007: First Light</h2>
+            <p class="game-path" id="game-path-display">Procurando instalação...</p>
+
+            <div class="game-status-row">
+              <div class="status-chip" id="mod-status-chip">
+                <span class="chip-dot"></span>
+                <span class="chip-text">Verificando...</span>
+              </div>
+              <div class="status-chip version-chip" id="version-chip" style="display:none">
+                <span class="chip-text" id="installed-version-text"></span>
+              </div>
+            </div>
+
+            <div class="game-actions">
+              <button class="btn btn-primary" id="btn-install-main" disabled>
+                <span class="btn-icon">📦</span>
+                Instalar Mod
+              </button>
+              <button class="btn btn-ghost" id="btn-uninstall-main" disabled>
+                <span class="btn-icon">🗑️</span>
+                Desinstalar
+              </button>
+              <button class="btn btn-ghost" id="btn-open-folder" disabled>
+                <span class="btn-icon">📁</span>
+                Abrir Pasta
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Update banner -->
+        <div class="update-banner" id="update-banner" style="display:none">
+          <div class="update-icon">🔔</div>
+          <div class="update-text">
+            <strong>Nova versão disponível!</strong>
+            <span id="update-version-text"></span>
+          </div>
+          <a href="#" class="btn btn-accent btn-sm" id="btn-download-update">Baixar</a>
+        </div>
+
+        <!-- Status cards -->
+        <div class="status-grid">
+          <div class="status-card">
+            <div class="status-card-icon">🎮</div>
+            <div class="status-card-label">Jogo</div>
+            <div class="status-card-value" id="sc-game">—</div>
+          </div>
+          <div class="status-card">
+            <div class="status-card-icon">📦</div>
+            <div class="status-card-label">Mods</div>
+            <div class="status-card-value" id="sc-mod">Não instalado</div>
+          </div>
+          <div class="status-card">
+            <div class="status-card-icon">💾</div>
+            <div class="status-card-label">Backup</div>
+            <div class="status-card-value" id="sc-backup">—</div>
+          </div>
+          <div class="status-card">
+            <div class="status-card-icon">🔗</div>
+            <div class="status-card-label">Plataforma</div>
+            <div class="status-card-value" id="sc-platform">—</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB: INSTALAR -->
+      <section class="tab-panel" id="tab-install">
+        <div class="panel-header">
+          <h1 class="panel-title">Instalar Mod</h1>
+          <p class="panel-subtitle">Selecione o arquivo .rpkg ou .zip do mod</p>
+        </div>
+
+        <div class="install-flow">
+          <!-- Step 1 -->
+          <div class="flow-step" id="step-game">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <h3 class="step-title">Jogo Detectado</h3>
+              <div class="step-path-box" id="step-game-path">
+                <span class="path-icon">📁</span>
+                <span class="path-text" id="step-game-path-text">Não encontrado</span>
+              </div>
+              <button class="btn btn-ghost btn-sm" id="btn-manual-path">
+                📂 Selecionar manualmente
+              </button>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="flow-connector"></div>
+          <div class="flow-step" id="step-mod-file">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <h3 class="step-title">Arquivo do Mod</h3>
+              <div class="drop-zone" id="drop-zone">
+                <div class="drop-icon">📦</div>
+                <p class="drop-label">Arraste o arquivo <strong>.rpkg</strong> ou <strong>.zip</strong> aqui</p>
+                <p class="drop-sub">ou</p>
+                <button class="btn btn-primary btn-sm" id="btn-browse-mod">Procurar arquivo</button>
+              </div>
+              <div class="selected-file-display" id="selected-file-display" style="display:none">
+                <span class="file-icon">📄</span>
+                <span class="file-name" id="selected-file-name"></span>
+                <button class="btn-clear" id="btn-clear-file">✕</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="flow-connector"></div>
+          <div class="flow-step" id="step-confirm">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <h3 class="step-title">Instalar</h3>
+              <div class="install-warning">
+                <span>⚠️</span>
+                <span>Um backup dos arquivos originais será criado automaticamente antes da instalação.</span>
+              </div>
+              <button class="btn btn-primary" id="btn-do-install" disabled>
+                <span class="btn-icon">🚀</span>
+                Instalar Mod
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Progress -->
+        <div class="progress-area" id="progress-area" style="display:none">
+          <div class="progress-label" id="progress-label">Instalando...</div>
+          <div class="progress-bar-track">
+            <div class="progress-bar-fill" id="progress-bar"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB: CONFIGURAÇÕES -->
+      <section class="tab-panel" id="tab-settings">
+        <div class="panel-header">
+          <h1 class="panel-title">Configurações</h1>
+          <p class="panel-subtitle">Personalize o Mod Manager</p>
+        </div>
+
+        <div class="settings-list">
+          <div class="settings-group">
+            <h3 class="settings-group-title">Caminho do Jogo</h3>
+            <div class="setting-row">
+              <label class="setting-label" for="input-game-path">Diretório do 007: First Light</label>
+              <div class="setting-control path-control">
+                <input type="text" class="setting-input" id="input-game-path" placeholder="C:\Program Files\Steam\steamapps\common\..." readonly />
+                <button class="btn btn-ghost btn-sm" id="btn-choose-path">Alterar</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="settings-group">
+            <h3 class="settings-group-title">Nexus Mods</h3>
+            <div class="setting-row">
+              <label class="setting-label" for="input-nexus-key">API Key (opcional — para verificar atualizações)</label>
+              <div class="setting-control">
+                <input type="password" class="setting-input" id="input-nexus-key" placeholder="Sua API key do Nexus Mods..." />
+              </div>
+            </div>
+            <div class="setting-row">
+              <label class="setting-label">Verificar atualizações automaticamente</label>
+              <div class="setting-control">
+                <label class="toggle" id="toggle-auto-update">
+                  <input type="checkbox" id="check-auto-update" checked />
+                  <span class="toggle-slider"></span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="settings-group">
+            <h3 class="settings-group-title">Backup</h3>
+            <div class="setting-row">
+              <label class="setting-label">Backup encontrado</label>
+              <div class="setting-control">
+                <span class="setting-value" id="backup-status-text">—</span>
+              </div>
+            </div>
+            <div class="setting-row">
+              <label class="setting-label"></label>
+              <div class="setting-control">
+                <button class="btn btn-danger btn-sm" id="btn-delete-backup">🗑️ Remover backup</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="settings-actions">
+            <button class="btn btn-primary" id="btn-save-settings">💾 Salvar configurações</button>
+            <button class="btn btn-ghost" id="btn-check-now">🔄 Verificar atualizações agora</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB: SOBRE -->
+      <section class="tab-panel" id="tab-about">
+        <div class="panel-header">
+          <h1 class="panel-title">Sobre</h1>
+          <p class="panel-subtitle">Open Source Mod Manager</p>
+        </div>
+
+        <div class="about-content">
+          <div class="about-hero">
+            <div class="about-logo">🛠️</div>
+            <h2 class="about-title">First Light Mod Manager</h2>
+            <p class="about-version">Versão 0.1.0</p>
+            <p class="about-desc">
+              Gerenciador de mods de código aberto para o <strong>007: First Light</strong>.
+              Instale, atualize e remova arquivos .rpkg de forma simples e segura, sem precisar de
+              conhecimento técnico.
+            </p>
+          </div>
+
+          <div class="about-links">
+            <a href="#" class="about-link-card" id="abt-nexus">
+              <span class="alc-icon">📦</span>
+              <div>
+                <strong>Nexus Mods</strong>
+                <span>007 First Light Mods</span>
+              </div>
+            </a>
+            <a href="#" class="about-link-card" id="abt-discord">
+              <span class="alc-icon">💬</span>
+              <div>
+                <strong>Comunidade Discord</strong>
+                <span>Visite o servidor oficial</span>
+              </div>
+            </a>
+          </div>
+
+          <div class="about-tech">
+            <h3>Tecnologias utilizadas</h3>
+            <div class="tech-chips">
+              <span class="tech-chip">Tauri 2</span>
+              <span class="tech-chip">Rust</span>
+              <span class="tech-chip">Glacier Engine 2</span>
+              <span class="tech-chip">RPKG Tool</span>
+            </div>
+          </div>
+
+          <p class="about-footer">
+            Open Source · 2026 · Licença MIT / Apache 2.0
+          </p>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Toast de notificação -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <script type="module" src="main.js"></script>
+</body>
+</html>
